@@ -9,8 +9,17 @@
 /* Begin PBXBuildFile section */
 		050330721E767CEF005AB44A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050330711E767CEF005AB44A /* GameKit.framework */; };
 		054418F12055EEE9008C821B /* calc in Resources */ = {isa = PBXBuildFile; fileRef = 054418EA2055EED5008C821B /* calc */; };
-		054418F62055EFEB008C821B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054418F52055EFEB008C821B /* main.swift */; };
 		05C4D95F1E76182500AB9F52 /* CalcTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C4D95E1E76182500AB9F52 /* CalcTest.swift */; };
+		B6158E002247BFA7002E7822 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DF82247BFA7002E7822 /* Stack.swift */; };
+		B6158E012247BFA7002E7822 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DF82247BFA7002E7822 /* Stack.swift */; };
+		B6158E022247BFA7002E7822 /* CalcErrorMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFA2247BFA7002E7822 /* CalcErrorMsg.swift */; };
+		B6158E032247BFA7002E7822 /* CalcErrorMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFA2247BFA7002E7822 /* CalcErrorMsg.swift */; };
+		B6158E042247BFA7002E7822 /* BinaryTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFC2247BFA7002E7822 /* BinaryTreeNode.swift */; };
+		B6158E052247BFA7002E7822 /* BinaryTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFC2247BFA7002E7822 /* BinaryTreeNode.swift */; };
+		B6158E062247BFA7002E7822 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFD2247BFA7002E7822 /* main.swift */; };
+		B6158E072247BFA7002E7822 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFD2247BFA7002E7822 /* main.swift */; };
+		B6158E082247BFA7002E7822 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFF2247BFA7002E7822 /* Helpers.swift */; };
+		B6158E092247BFA7002E7822 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6158DFF2247BFA7002E7822 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,11 +47,15 @@
 /* Begin PBXFileReference section */
 		050330711E767CEF005AB44A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		054418EA2055EED5008C821B /* calc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = calc; sourceTree = BUILT_PRODUCTS_DIR; };
-		054418F52055EFEB008C821B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		05C4D95C1E76182500AB9F52 /* CalcTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalcTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C4D95E1E76182500AB9F52 /* CalcTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcTest.swift; sourceTree = "<group>"; };
 		05C4D9601E76182500AB9F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05F9F69E1E9DEDD500694D73 /* CalcTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalcTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		B6158DF82247BFA7002E7822 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		B6158DFA2247BFA7002E7822 /* CalcErrorMsg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcErrorMsg.swift; sourceTree = "<group>"; };
+		B6158DFC2247BFA7002E7822 /* BinaryTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeNode.swift; sourceTree = "<group>"; };
+		B6158DFD2247BFA7002E7822 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B6158DFF2247BFA7002E7822 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +88,11 @@
 		054418F42055EFEB008C821B /* calc */ = {
 			isa = PBXGroup;
 			children = (
-				054418F52055EFEB008C821B /* main.swift */,
+				B6158DF72247BFA7002E7822 /* Collection */,
+				B6158DF92247BFA7002E7822 /* Error */,
+				B6158DFD2247BFA7002E7822 /* main.swift */,
+				B6158DFB2247BFA7002E7822 /* TreeClass */,
+				B6158DFE2247BFA7002E7822 /* Utils */,
 			);
 			path = calc;
 			sourceTree = "<group>";
@@ -107,6 +124,38 @@
 				05F9F69E1E9DEDD500694D73 /* CalcTest-Bridging-Header.h */,
 			);
 			path = CalcTest;
+			sourceTree = "<group>";
+		};
+		B6158DF72247BFA7002E7822 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				B6158DF82247BFA7002E7822 /* Stack.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		B6158DF92247BFA7002E7822 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				B6158DFA2247BFA7002E7822 /* CalcErrorMsg.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		B6158DFB2247BFA7002E7822 /* TreeClass */ = {
+			isa = PBXGroup;
+			children = (
+				B6158DFC2247BFA7002E7822 /* BinaryTreeNode.swift */,
+			);
+			path = TreeClass;
+			sourceTree = "<group>";
+		};
+		B6158DFE2247BFA7002E7822 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B6158DFF2247BFA7002E7822 /* Helpers.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +208,7 @@
 				TargetAttributes = {
 					054418E92055EED5008C821B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 					05C4D95B1E76182500AB9F52 = {
@@ -202,7 +252,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				054418F62055EFEB008C821B /* main.swift in Sources */,
+				B6158E002247BFA7002E7822 /* Stack.swift in Sources */,
+				B6158E022247BFA7002E7822 /* CalcErrorMsg.swift in Sources */,
+				B6158E062247BFA7002E7822 /* main.swift in Sources */,
+				B6158E082247BFA7002E7822 /* Helpers.swift in Sources */,
+				B6158E042247BFA7002E7822 /* BinaryTreeNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6158E032247BFA7002E7822 /* CalcErrorMsg.swift in Sources */,
+				B6158E092247BFA7002E7822 /* Helpers.swift in Sources */,
+				B6158E072247BFA7002E7822 /* main.swift in Sources */,
+				B6158E012247BFA7002E7822 /* Stack.swift in Sources */,
+				B6158E052247BFA7002E7822 /* BinaryTreeNode.swift in Sources */,
 				05C4D95F1E76182500AB9F52 /* CalcTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +289,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
@@ -237,11 +297,12 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
-				CODE_SIGNING_REQUIRED = NO;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -255,6 +316,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
@@ -262,11 +324,12 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
-				CODE_SIGNING_REQUIRED = NO;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -300,8 +363,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -354,8 +417,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -378,10 +441,11 @@
 		05C4D9621E76182500AB9F52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
-				CODE_SIGNING_REQUIRED = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CalcTest/Info.plist;
@@ -400,10 +464,11 @@
 		05C4D9631E76182500AB9F52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
-				CODE_SIGNING_REQUIRED = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CalcTest/Info.plist;

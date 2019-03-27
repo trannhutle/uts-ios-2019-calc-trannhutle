@@ -22,4 +22,7 @@ class BinaryTreeNode {
         self.rightNode = nil
         self.leftNode = nil
     }
+    
+    
+    
 }

@@ -21,7 +21,7 @@ struct Stack<Element> {
     }
     
     func peek() -> Element?{
-        return self.array.last
+        return self.array.last!
     }
     
     func count() -> Int{

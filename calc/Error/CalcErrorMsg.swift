@@ -10,4 +10,8 @@ import Foundation
 
 enum CalcError: Error{
     case deviveZero(String)
+    case inputValueIsText(String)
+    case noOperator(String)
+    case couldNotFindOperatorNode(String)
+    case emptyInput(String)
 }

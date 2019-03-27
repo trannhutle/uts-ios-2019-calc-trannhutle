@@ -10,8 +10,8 @@ import Foundation
 class Helpers{
     
     static func isOperator(input: String) -> Bool{
-        if input == "+" || input  == "-" || input  == "*" ||
-            input  == "/" || input  == "%" {
+        if input == AppSetting.plus || input  == AppSetting.minutes || input  == AppSetting.multiply ||
+            input  == AppSetting.devide || input  == AppSetting.modulo {
             return true
         }
         return false
@@ -26,7 +26,7 @@ class Helpers{
     }
     
     static func getOperatorPriority(op: String) -> Int {
-        if op == "*" || op == "/" || op == "%" {
+        if op == AppSetting.multiply || op == AppSetting.devide || op == AppSetting.modulo {
             return 2
         }else{
             return 1

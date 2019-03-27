@@ -7,88 +7,128 @@
 //
 
 import Foundation
+import Darwin
 
 
 var args = ProcessInfo.processInfo.arguments
 args.removeFirst() // remove the name of the program
 
-print("the application starts")
+func  createInfixExpressionTree(expressionArray: [String]) throws ->BinaryTreeNode{
 
-print(args)
-
-//print(Int(args[0])!)
-
-
-func  createInfixExpressionTree(expressionStr: String) ->BinaryTreeNode{
-
-    let expression_array = expressionStr.components(separatedBy: " ")
     var operatorStack = Stack<BinaryTreeNode>()
     var nodeStack = Stack<BinaryTreeNode>()
-
-    for ex in expression_array{
+    var isContainsOperator = false
+    
+    for ex in expressionArray{
         if (Helpers.isOperand(input: ex)){
             nodeStack.push(BinaryTreeNode(nodeData: ex))
         }else if (Helpers.isOperator(input: ex)){
 
             while(operatorStack.count() > 0 && Helpers.getOperatorPriority(op: operatorStack.peek()!.nodeValue) >= Helpers.getOperatorPriority(op: ex)){
-                let node = operatorStack.pop()!;
-                node.rightNode = nodeStack.pop()!
-                node.leftNode = nodeStack.pop()!
-                nodeStack.push(node)
+                if let node: BinaryTreeNode   = operatorStack.pop(){
+                    node.rightNode = nodeStack.pop()
+                    node.leftNode = nodeStack.pop()
+                    nodeStack.push(node)
+                }
             }
             operatorStack.push(BinaryTreeNode(nodeData: ex))
+            isContainsOperator = true
+        }else{
+            throw CalcError.inputValueIsText(AppSetting.inputValueIsTextMsg)
         }
     }
-    
-    while(operatorStack.count() > 0){
-        let node = operatorStack.pop()!;
-        node.rightNode = nodeStack.pop()!
-        node.leftNode = nodeStack.pop()!
-        nodeStack.push(node)
+    if (!isContainsOperator && nodeStack.count() != 1){
+        throw CalcError.noOperator(AppSetting.noOperatorMsg)
     }
-    return nodeStack.peek()!
+    while(operatorStack.count() > 0){
+        if let node: BinaryTreeNode   = operatorStack.pop(){
+            node.rightNode = nodeStack.pop()
+            node.leftNode = nodeStack.pop()
+            nodeStack.push(node)
+        }
+    }
+    if let nodePeak = nodeStack.peek(){
+        return nodePeak
+    }else{
+        throw CalcError.emptyInput(AppSetting.emptyInputMsg)
+    }
 }
 
 
-func evaluateExpression(node: BinaryTreeNode) throws -> Float{
-    var result: Float = 0.0
-    
+func evaluateExpression(node: BinaryTreeNode) throws -> Int{
+    var result: Int = 0
+
     if node.isLeaf(){
-        result = Float(node.nodeValue)!
-    }else{
-        let x = try evaluateExpression(node: node.leftNode!)
-        let y = try evaluateExpression(node: node.rightNode!)
-        switch node.nodeValue {
-        case "+": result = x + y;
-        break;
-        case "-": result = x - y;
-        break;
-        case "*": result = x * y;
-        break;
-        case "/":
-            if y == 0{
-                throw CalcError.deviveZero("Devide zero")
-            }else{
-                result = x / y;
-            }
-        break;
-        case "%": result = x.truncatingRemainder(dividingBy: y);
-        break;
-        default:
-            print("go to default function")
+        if let input =  Int(node.nodeValue) {
+                result = input
+        } else{
+            throw CalcError.inputValueIsText(AppSetting.inputValueIsTextMsg)
         }
+    }else{
+        do{
+            
+            let x =  try evaluateExpression(node: node.leftNode!)
+            let y = try evaluateExpression(node: node.rightNode!)
+            switch node.nodeValue {
+            case AppSetting.plus: result = x + y;
+            break;
+            case AppSetting.minutes: result = x - y;
+            break;
+            case AppSetting.multiply: result = x * y;
+            break;
+            case AppSetting.devide:
+                if (y == 0){
+                    throw CalcError.deviveZero(AppSetting.deviveZeroMsg)
+                }
+                result = x / y;
+                break;
+            case AppSetting.modulo:
+                if (y == 0){
+                    throw CalcError.deviveZero(AppSetting.deviveZeroMsg)
+                }
+                result = x % y;
+            break;
+            default:
+                print("go to default function")
+            
+            }
+            
+        }catch  CalcError.inputValueIsText(let erroMessage){
+            throw CalcError.inputValueIsText(erroMessage)
+        }
+        
     }
     return result
 }
 
-//var returnValue = createInfixExpressionTree(expressionStr: "-9 -5 / 2 + 1")
-var returnValue = createInfixExpressionTree(expressionStr: "-9 - 5 / 0 + 1")
-//var returnValue = createInfixExpressionTree(expressionStr: "+20 / 3")
-do{
-    print (try evaluateExpression(node: returnValue))
-}
-catch CalcError.deviveZero(let errorMessage){
-    print(errorMessage)
-}
 
+do{
+    let returnValue = try createInfixExpressionTree(expressionArray: args)
+    let result = try evaluateExpression(node: returnValue)
+    print(result)
+
+//    let returnValue = try createInfixExpressionTree(expressionArray: ["50%", "+", "25%"])
+//    let result = try evaluateExpression(node: returnValue)
+//    print(result)
+//
+}catch  CalcError.deviveZero(let erroMessage){
+    print(erroMessage)
+    exit(1)
+}
+catch  CalcError.inputValueIsText(let erroMessage){
+    print (erroMessage)
+    exit(1)
+}
+catch  CalcError.noOperator(let erroMessage){
+    print (erroMessage)
+    exit(1)
+}
+catch  CalcError.couldNotFindOperatorNode(let erroMessage){
+    print (erroMessage)
+    exit(1)
+}
+catch  CalcError.emptyInput(let erroMessage){
+    print (erroMessage)
+    exit(1)
+}
 
